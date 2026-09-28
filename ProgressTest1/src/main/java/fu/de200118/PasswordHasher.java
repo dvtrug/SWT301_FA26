@@ -39,4 +39,7 @@ public final class PasswordHasher {
         byte[] actual = hash(salt, raw).getBytes(StandardCharsets.UTF_8);
         return MessageDigest.isEqual(actual, expectedHash.getBytes(StandardCharsets.UTF_8));
     }
+
+
 }
+
