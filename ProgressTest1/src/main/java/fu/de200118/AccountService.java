@@ -116,4 +116,24 @@ public class AccountService {
         }
         return Optional.ofNullable(accountsByUsername.get(key(username)));
     }
+
+    // ================= Quản trị & truy vấn =================
+    public ResultCode disableAccount(String username) {
+        Optional<Account> account = findByUsername(username);
+        if (account.isEmpty()) {
+            return ResultCode.USER_NOT_FOUND;
+        }
+        account.get().setStatus(AccountStatus.DISABLED);
+        return ResultCode.SUCCESS;
+    }
+
+    /** BR-ADM-03: quản trị viên mở khóa tài khoản bị khóa do đăng nhập sai. */
+    public ResultCode unlockAccount(String username) {
+        Optional<Account> account = findByUsername(username);
+        if (account.isEmpty()) {
+            return ResultCode.USER_NOT_FOUND;
+        }
+        account.get().unlock();
+        return ResultCode.SUCCESS;
+    }
 }
