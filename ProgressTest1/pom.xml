@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>fu.swt301</groupId>
-    <artifactId>lab2-account</artifactId>
+    <artifactId>progress-test1</artifactId>
     <version>1.0.0</version>
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
