@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
+import utils.ConfigReader;
+
 import java.time.Duration;
 
 public class BasePage {
@@ -11,7 +13,8 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        int timeout = ConfigReader.getInt("timeoutSeconds", 10);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
     }
 
     protected WebElement waitForVisibility(By locator) {
